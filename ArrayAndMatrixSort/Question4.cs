@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Struct_and_algo
+namespace ArrayAndMatrixSort
 {
     class Question4
     {

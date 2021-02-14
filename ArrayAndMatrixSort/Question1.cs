@@ -1,9 +1,21 @@
 ﻿using System;
 
-namespace Struct_and_algo
+namespace ArrayAndMatrixSort
 {
     class Question1
     {
+        private void MaxAndMin_log(ref int[] array)
+        {
+            int min = array[0];
+            int max = array[0];
+            foreach (int item in array)
+            {
+                min = item < min ? item : min;
+                max = item > max ? item : max;
+            }
+            Console.WriteLine($"Min value: {min}");
+            Console.WriteLine($"Min value: {max}");
+        }
 
         private void Part_A_sort(ref int[] array)
         {
@@ -18,6 +30,7 @@ namespace Struct_and_algo
             }
             array[middleIndex] = temp[^1];
         }
+
         private void Part_B_sort(ref int[] array)
         {
             int[] temp = (int[])array.Clone();
@@ -40,19 +53,21 @@ namespace Struct_and_algo
             {
                 int idiv2 = (int)Math.Floor(i / 2D);
                 array[i++] = temp[idiv2];
-                array[i] = temp[temp.Length -1 - idiv2];
+                array[i] = temp[temp.Length - 1 - idiv2];
             }
         }
-        
+
 
 
         public void Init()
         {
             Console.WriteLine("\n**************\t" + this.GetType().Name);
 
-            const int arrSize = 8;
+            const int arrSize = 20;
             int[] array = new int[arrSize];
-            Algo.InitialArray(ref array, arrSize: arrSize, isRandom: true);
+            Algo.InitialArray(ref array, arrSize: arrSize, isRandom: true, MinRandNumber: -999);
+
+            Algo.FnInvoke(ref array, MaxAndMin_log);
 
             int[] SortedArray = (int[])array.Clone();
             Algo.SortAndPrint(ref SortedArray, Algo.QuickSort);

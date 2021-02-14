@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Struct_and_algo
+namespace ArrayAndMatrixSort
 {
     class Question2
     {
