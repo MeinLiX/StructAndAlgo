@@ -23,20 +23,20 @@ namespace ArrayAndMatrixSort
         private void Sort_OX_OY_OZ_Arr3(ref int[,,] array)
         {
             foreach (var ax in Enum.GetValues(typeof(Algo.Axis)))
-                for (int z = 0; z < array.GetLength(2); z++)
-                    for (int y = 0; y < array.GetLength(1); y++)
-                        for (int x = 0; x < array.GetLength(0); x++)
+                for (int z = 0; z < array.GetLength((int)Algo.Axis.OZ); z++)
+                    for (int y = 0; y < array.GetLength((int)Algo.Axis.OY); y++)
+                        for (int x = 0; x < array.GetLength((int)Algo.Axis.OX); x++)
                         {
-                            int[] temp_arr = Algo.ConvertTo1d(array, (Algo.Axis)ax, x, y, z);
-                            Algo.QuickSort(ref temp_arr);
-                            Algo.Write3dFrom1d(ref array, temp_arr, (Algo.Axis)ax, x, y, z);
+                            //int[] temp_arr = Algo.ConvertTo1d(array, (Algo.Axis)ax, x, y, z);
+                            //Algo.QuickSort(ref temp_arr);
+                            //Algo.Write3dFrom1d(ref array, temp_arr, (Algo.Axis)ax, x, y, z);
 
                             if ((Algo.Axis)ax == Algo.Axis.OX)
-                                x = array.GetLength(0) - 1;
+                                x = array.GetLength((int)Algo.Axis.OX) - 1;
                             else if ((Algo.Axis)ax == Algo.Axis.OY)
-                                y = array.GetLength(1) - 1;
+                                y = array.GetLength((int)Algo.Axis.OY) - 1;
                             else if ((Algo.Axis)ax == Algo.Axis.OZ)
-                                y = array.GetLength(2) - 1;
+                                z = array.GetLength((int)Algo.Axis.OZ) - 1;
                         }
         }
 
